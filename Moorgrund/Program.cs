@@ -9,7 +9,7 @@ namespace Moorgrund {
 
             controller.Model = model;
             controller.View = view;
-            view.display();
+            view.Display();
         }
     }
 }

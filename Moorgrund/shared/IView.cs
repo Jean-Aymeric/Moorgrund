@@ -5,6 +5,6 @@ namespace Moorgrund.shared {
         public shared.IModel Model { get; set; }
         public shared.IController Controller { get; set; }
 
-        public void display();
+        public void Display();
     }
 }

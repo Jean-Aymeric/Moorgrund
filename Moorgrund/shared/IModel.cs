@@ -3,6 +3,7 @@
 
 namespace Moorgrund.shared {
     interface IModel {
-        String test();
+        String Test();
+        IWorld World { get; }
     }
 }
