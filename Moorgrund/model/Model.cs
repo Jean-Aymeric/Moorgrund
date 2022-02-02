@@ -9,6 +9,7 @@ namespace Moorgrund.model {
 
         public Model() {
             World = new World(Width, Height);
+            IWorld World2 = new World(Width, Height);
         }
 
         public string Test() {

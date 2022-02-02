@@ -4,13 +4,21 @@ using System.Collections.Generic;
 
 namespace Moorgrund.model.squareFactories {
     class SquareFactory {
+        private static SquareFactory Instance;
 
         private List<Factory> factories = new List<Factory>();
 
-        public SquareFactory() {
+        private SquareFactory() {
             factories.Add(new TreeFactory());
             factories.Add(new GrassFactory());
             factories.Add(new RockFactory());
+        }
+
+        public static SquareFactory GetInstance() {
+            if (Instance == null) {
+                Instance = new SquareFactory();
+            }
+            return Instance;
         }
 
         private Factory getFactoryByName(String name) {
