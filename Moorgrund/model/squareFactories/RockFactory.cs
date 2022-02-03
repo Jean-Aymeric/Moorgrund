@@ -2,7 +2,13 @@
 
 namespace Moorgrund.model.squareFactories {
     class RockFactory : Factory {
-        public RockFactory() : base("Rock", new Rock()) {
+        private Rock buildedRock = new Rock();
+        public RockFactory() : base("Rock") {
+        }
+
+        public override Square Make()
+        {
+            return buildedRock;
         }
     }
 }

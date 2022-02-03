@@ -5,15 +5,11 @@ using Moorgrund.model.square;
 namespace Moorgrund.model.squareFactories {
     abstract class Factory {
         protected String Name { get; private set; }
-        private Square BuildedSquare { get; set;  }
 
-        public Factory(String name, Square buildedSquare) {
+        public Factory(String name) {
             Name = name;
-            BuildedSquare = buildedSquare;
         }
-        public Square Make() {
-            return BuildedSquare;
-        }
+        public abstract Square Make();
 
         public bool Is(String name) {
             return Name.Equals(name);

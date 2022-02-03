@@ -2,7 +2,14 @@
 
 namespace Moorgrund.model.squareFactories {
     class GrassFactory : Factory {
-        public GrassFactory() : base("Grass", new Grass()) {
+        private Grass buildedGrass = new Grass();
+
+        public GrassFactory() : base("Grass") {
+        }
+
+        public override Square Make()
+        {
+            return buildedGrass;
         }
     }
 }
