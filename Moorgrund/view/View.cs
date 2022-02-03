@@ -1,44 +1,44 @@
 ﻿using Moorgrund.shared;
 using System;
+using System.Threading;
 
 namespace Moorgrund.view {
-    class View : shared.IView {
-        public shared.IModel Model { get; set; }
-        public shared.IController Controller { get; set; }
+    class View : IView, IObserver {
+        private IModel _model;
+        public IModel Model { get => _model; set { if (value != null) { value.AddObserver(this); } _model = value; } }
+        public IController Controller { get; set; }
         public int WindowHeight { get; set; }
         public int WindowWidth { get; set; }
         public int PositionX { get; set; }
         public int PositionY { get; set; }
+        private bool Show { get; set; }
 
         public void Display() {
             bool running = true;
-            bool show = false;
-     
+            Show = true;
             do {
-                PositionX = Model.Paracrobunus.X;
-                PositionY = Model.Paracrobunus.Y;
-                do {
-                    Console.Clear();
-                    printWorld();
-                    show = false;
-                } while (!Console.KeyAvailable && show);
-                
+                if (Show) {
+                    PositionX = Model.Paracrobunus.X;
+                    PositionY = Model.Paracrobunus.Y;
+                    do {
+                        Console.Clear();
+                        printWorld();
+                        Show = false;
+                    } while (!Console.KeyAvailable && Show);
+                }
+
                 ConsoleKey Key = Console.ReadKey(true).Key;
                 if (Key == ConsoleKey.LeftArrow) {
-                   Model.Paracrobunus.MoveLeft();
-                    show = true;
+                    Controller.ManageOrder(Order.Left);
                 }
                 if (Key == ConsoleKey.RightArrow) {
-                    Model.Paracrobunus.MoveRight();
-                    show = true;
+                    Controller.ManageOrder(Order.Right);
                 }
                 if (Key == ConsoleKey.UpArrow) {
-                    Model.Paracrobunus.MoveUp();
-                    show = true;
+                    Controller.ManageOrder(Order.Up);
                 }
                 if (Key == ConsoleKey.DownArrow) {
-                    Model.Paracrobunus.MoveDown();
-                    show = true;
+                    Controller.ManageOrder(Order.Down);
                 }
                 if (Key == ConsoleKey.Escape) {
                     running = false;
@@ -80,5 +80,9 @@ namespace Moorgrund.view {
         private int PositionYToWorldY(int y) {
             return PositionY + y;
         }
+
+        public void Notify() {
+            Show = true;
+         }
     }
 }

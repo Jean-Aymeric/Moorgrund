@@ -8,7 +8,6 @@ namespace Moorgrund.shared
 {
     interface IMobile : ISquare
     {
-        IWorld World { get; set; }
         int X { get; set; }
         int Y { get; set; }
 

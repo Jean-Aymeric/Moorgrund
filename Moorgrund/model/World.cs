@@ -33,7 +33,7 @@ namespace Moorgrund.model {
             if (x >= 0 && x < Width && y >= 0 && y < Height) {
                 return squares[y, x];
             }
-            return SquareFactory.GetInstance().MakeVoid(); ;
+            return SquareFactory.GetInstance().MakeRock(); ;
         }
     }
 }

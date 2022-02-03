@@ -10,21 +10,21 @@ namespace Moorgrund.model.mobile
 {
     abstract class Mobile : Square, IMobile
     {
-        public int X { get; set; }
-        public int Y { get; set; }
+        protected IModel Model { get; set; }
+        private int _x, _y;
+        public int X { get { return _x; } set { Model.Changed = true; _x = value; } }
+        public int Y { get { return _y; } set { Model.Changed = true; _y = value; } }
 
-        public IWorld World { get; set; }
-
-        public Mobile(Sprite sprite, int x, int y, IWorld world) : base(sprite, false)
+        public Mobile(Sprite sprite, int x, int y, IModel model) : base(sprite, false)
         {
+            Model = model;
             X = x;
             Y = y;
-            World = world;
         }
 
         protected bool isSquareFree(int x, int y)
         {
-            return World.GetSquare(x, y).Traversable;
+            return Model.World.GetSquare(x, y).Traversable;
         }
 
         public void MoveDown()

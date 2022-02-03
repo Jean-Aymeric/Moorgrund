@@ -12,7 +12,7 @@ namespace Moorgrund.model.mobile
         private static readonly char[,] PlayerText = {   { ' ', ' ', 'o', ' ' },
                                                         { ' ', '-', '0', '-' },
                                                         { ' ', ' ', '^', ' ' } };
-        public Paracrobunus(int x, int y, IWorld world) : base(new Sprite(PlayerText), x, y, world)
+        public Paracrobunus(int x, int y, IModel model) : base(new Sprite(PlayerText), x, y, model)
         {
 
         }
