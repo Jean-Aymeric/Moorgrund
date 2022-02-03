@@ -9,6 +9,10 @@ namespace Moorgrund {
 
             controller.Model = model;
             controller.View = view;
+            view.PositionX = 3;
+            view.PositionY = 2;
+            view.WindowWidth = 29;
+            view.WindowHeight = 10;
             view.Display();
         }
     }

@@ -1,15 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Moorgrund.shared;
+using System;
 
 namespace Moorgrund.model {
     class Sprite : shared.ISprite {
-        public char TextImage { get; set; }
 
-        public Sprite(char textImage) {
+
+        public char[,] TextImage { get; set; }
+
+        public Sprite(char[,] textImage) {
+            TextImage = new char[ISprite.TextImageHeight, ISprite.TextImageWidth];
             TextImage = textImage;
         }
+
     }
 }

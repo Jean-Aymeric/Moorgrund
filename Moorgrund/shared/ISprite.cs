@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 namespace Moorgrund.shared {
     interface ISprite {
-        public char TextImage { get; set; }
+        public static int TextImageWidth = 4;
+        public static int TextImageHeight = 3;
+        public char[,] TextImage { get; set; }
     }
 }

@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace Moorgrund.model.square {
     class Grass : Square {
-        public Grass() : base(new Sprite('.'), true) {
+        private static readonly char[,] GrassText = {   { ' ', ' ', ' ', ' ' },
+                                                        { ' ', ' ', ' ', ' ' },
+                                                        { ' ', ' ', ' ', ' ' } };
+        public Grass() : base(new Sprite(GrassText), true) {
         }
     }
 }

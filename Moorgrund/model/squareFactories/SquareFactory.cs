@@ -9,6 +9,7 @@ namespace Moorgrund.model.squareFactories {
         private List<Factory> factories = new List<Factory>();
 
         private SquareFactory() {
+            factories.Add(new VoidFactory());
             factories.Add(new TreeFactory());
             factories.Add(new GrassFactory());
             factories.Add(new RockFactory());
@@ -42,8 +43,15 @@ namespace Moorgrund.model.squareFactories {
             return getFactoryByName("Rock").Make();
         }
 
+        public Square MakeVoid() {
+            return getFactoryByName("Void").Make();
+        }
+
         public Square Make() {
-            return factories[new Random().Next(factories.Count)].Make();
+            if (new Random().Next(5) == 0) {
+                return factories[new Random().Next(factories.Count - 1) + 1].Make();
+            }
+            return MakeGrass();
         }
     }
 }
