@@ -9,7 +9,7 @@ namespace Moorgrund.model.square {
         private static readonly char[,] RockText = {    { '░', '░', '░', '░' },
                                                         { '░', '░', '░', '░' },
                                                         { '░', '░', '░', '░' } };
-        public Rock() : base(new Sprite(RockText), true) {
+        public Rock() : base(new Sprite(RockText), false) {
         }
     }
 }

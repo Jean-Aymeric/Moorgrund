@@ -31,7 +31,7 @@ namespace Moorgrund.model.mobile
         {
             if (isSquareFree(X, Y + 1))
             {
-                Y = Y++;
+                Y++;
             }
         }
 
@@ -39,7 +39,7 @@ namespace Moorgrund.model.mobile
         {
             if (isSquareFree(X, Y - 1))
             {
-                Y = Y--;
+                Y--;
             }
         }
 
@@ -47,7 +47,7 @@ namespace Moorgrund.model.mobile
         {
             if (isSquareFree(X - 1, Y))
             {
-                X = X--;
+                X--;
             }
         }
 
@@ -55,7 +55,7 @@ namespace Moorgrund.model.mobile
         {
             if (isSquareFree(X + 1, Y))
             {
-                X = X++;
+                X++;
             }
         }
     }

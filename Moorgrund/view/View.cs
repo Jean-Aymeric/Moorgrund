@@ -13,9 +13,10 @@ namespace Moorgrund.view {
         public void Display() {
             bool running = true;
             bool show = false;
-            PositionX = Model.Paracrobunus.X;
-            PositionY = Model.Paracrobunus.Y;
+     
             do {
+                PositionX = Model.Paracrobunus.X;
+                PositionY = Model.Paracrobunus.Y;
                 do {
                     Console.Clear();
                     printWorld();
@@ -24,19 +25,19 @@ namespace Moorgrund.view {
                 
                 ConsoleKey Key = Console.ReadKey(true).Key;
                 if (Key == ConsoleKey.LeftArrow) {
-                    PositionX--;
+                   Model.Paracrobunus.MoveLeft();
                     show = true;
                 }
                 if (Key == ConsoleKey.RightArrow) {
-                    PositionX++;
+                    Model.Paracrobunus.MoveRight();
                     show = true;
                 }
                 if (Key == ConsoleKey.UpArrow) {
-                    PositionY--;
+                    Model.Paracrobunus.MoveUp();
                     show = true;
                 }
                 if (Key == ConsoleKey.DownArrow) {
-                    PositionY++;
+                    Model.Paracrobunus.MoveDown();
                     show = true;
                 }
                 if (Key == ConsoleKey.Escape) {

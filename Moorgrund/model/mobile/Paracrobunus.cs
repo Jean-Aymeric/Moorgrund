@@ -14,6 +14,7 @@ namespace Moorgrund.model.mobile
                                                         { ' ', ' ', '^', ' ' } };
         public Paracrobunus(int x, int y, IWorld world) : base(new Sprite(PlayerText), x, y, world)
         {
+
         }
     }
 }
