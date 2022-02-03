@@ -13,6 +13,8 @@ namespace Moorgrund.view {
         public void Display() {
             bool running = true;
             bool show = false;
+            PositionX = Model.Paracrobunus.X;
+            PositionY = Model.Paracrobunus.Y;
             do {
                 do {
                     Console.Clear();
@@ -56,7 +58,13 @@ namespace Moorgrund.view {
             for (int ligne = 0; ligne < ISprite.TextImageHeight; ligne++) {
                 for (int x = -WindowWidth / 2; x < (WindowWidth / 2) + (WindowWidth % 2); x++) {
                     for (int i = 0; i < ISprite.TextImageWidth; i++) {
-                        OneLineOfWorld += Model.World.GetSquare(PositionXToWorldX(x), PositionYToWorldY(y)).Sprite.TextImage[ligne, i];
+                        if(Model.Paracrobunus.X == PositionXToWorldX(x) && Model.Paracrobunus.Y == PositionYToWorldY(y))
+                        {
+                            OneLineOfWorld += Model.Paracrobunus.Sprite.TextImage[ligne, i];
+                        }else
+                        {
+                            OneLineOfWorld += Model.World.GetSquare(PositionXToWorldX(x), PositionYToWorldY(y)).Sprite.TextImage[ligne, i];
+                        }
                     }
                 }
                 OneLineOfWorld += "\n";
