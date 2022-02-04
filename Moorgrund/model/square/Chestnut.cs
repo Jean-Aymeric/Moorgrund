@@ -8,9 +8,9 @@ namespace Moorgrund.model.square
 {
     class Chestnut : Tree
     {
-        private static readonly char[,] treeText = {   { ' ', '/', '\\', ' ' },
-                                                        { '/', '°', '°', '\\' },
-                                                        { ' ', '▒', '▒', ' ' } };
+        private static readonly char[,] treeText = {   { ' ', 'o', 'o', ' ' },
+                                                        { 'o', 'O', 'O', 'o' },
+                                                        { '°', '▒', '▒', '°' } };
 
         public Chestnut() : base(treeText)
         {
