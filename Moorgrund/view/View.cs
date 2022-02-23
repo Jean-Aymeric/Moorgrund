@@ -14,36 +14,30 @@ namespace Moorgrund.view {
         private bool Show { get; set; }
 
         public void Display() {
-            bool running = true;
             Show = true;
-            do {
-                if (Show) {
-                    PositionX = Model.Paracrobunus.X;
-                    PositionY = Model.Paracrobunus.Y;
-                    do {
-                        Console.Clear();
-                        printWorld();
-                        Show = false;
-                    } while (!Console.KeyAvailable && Show);
-                }
+            if (Show) {
+                PositionX = Model.Paracrobunus.X;
+                PositionY = Model.Paracrobunus.Y;
+                do {
+                    Console.Clear();
+                    printWorld();
+                    Show = false;
+                } while (!Console.KeyAvailable && Show);
+            }
 
-                ConsoleKey Key = Console.ReadKey(true).Key;
-                if (Key == ConsoleKey.LeftArrow) {
-                    Controller.ManageOrder(Order.Left);
-                }
-                if (Key == ConsoleKey.RightArrow) {
-                    Controller.ManageOrder(Order.Right);
-                }
-                if (Key == ConsoleKey.UpArrow) {
-                    Controller.ManageOrder(Order.Up);
-                }
-                if (Key == ConsoleKey.DownArrow) {
-                    Controller.ManageOrder(Order.Down);
-                }
-                if (Key == ConsoleKey.Escape) {
-                    running = false;
-                }
-            } while (running);
+            ConsoleKey Key = Console.ReadKey(true).Key;
+            if (Key == ConsoleKey.LeftArrow) {
+                Controller.ManageOrder(Order.Left);
+            }
+            if (Key == ConsoleKey.RightArrow) {
+                Controller.ManageOrder(Order.Right);
+            }
+            if (Key == ConsoleKey.UpArrow) {
+                Controller.ManageOrder(Order.Up);
+            }
+            if (Key == ConsoleKey.DownArrow) {
+                Controller.ManageOrder(Order.Down);
+            }
 
         }
 
@@ -59,9 +53,10 @@ namespace Moorgrund.view {
             for (int ligne = 0; ligne < ISprite.TextImageHeight; ligne++) {
                 for (int x = -WindowWidth / 2; x < (WindowWidth / 2) + (WindowWidth % 2); x++) {
                     for (int i = 0; i < ISprite.TextImageWidth; i++) {
-                        if(Model.Paracrobunus.X == PositionXToWorldX(x) && Model.Paracrobunus.Y == PositionYToWorldY(y))
+                        IMobile mobile = Model.GetMobileByXY(PositionXToWorldX(x), PositionYToWorldY(y));
+                        if(mobile != null)
                         {
-                            OneLineOfWorld += Model.Paracrobunus.Sprite.TextImage[ligne, i];
+                            OneLineOfWorld += mobile.Sprite.TextImage[ligne, i];
                         }else
                         {
                             OneLineOfWorld += Model.World.GetSquare(PositionXToWorldX(x), PositionYToWorldY(y)).Sprite.TextImage[ligne, i];

@@ -11,7 +11,7 @@ namespace Moorgrund {
             controller.View = view;
             view.WindowWidth = 29;
             view.WindowHeight = 10;
-            view.Display();
+            controller.GameLoop();
         }
     }
 }

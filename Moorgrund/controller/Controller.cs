@@ -44,5 +44,17 @@ namespace Moorgrund.controller {
                     break;
             }
         }
+
+        public void GameLoop()
+        {
+            for(; ; )
+            {
+                view.Display();
+                foreach (ICreature creature in Model.Creatures)
+                {
+                    creature.Live();
+                }
+            }
+        }
     }
 }

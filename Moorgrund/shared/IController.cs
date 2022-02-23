@@ -5,5 +5,6 @@ namespace Moorgrund.shared {
         IView View { get; set; }
         IModel Model { get; set; }
         void ManageOrder(Order order);
+        void GameLoop();
     }
 }
