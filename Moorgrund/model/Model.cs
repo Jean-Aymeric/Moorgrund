@@ -1,6 +1,7 @@
 ﻿using Moorgrund.model.mobile;
 using Moorgrund.model.mobile.creature;
 using Moorgrund.model.mobile.custom;
+using Moorgrund.model.parser;
 using Moorgrund.shared;
 using System;
 using System.Collections.Generic;
@@ -15,8 +16,10 @@ namespace Moorgrund.model {
         
         public Model() {
             World = new World(Width, Height);
-            //Paracrobunus = machin.parse("heros femme guerriere bouclier tapis-volant rank=2");
-            Paracrobunus = new Rank(new MagicCarpet(new Shield(new Warrior(new Woman(new Paracrobunus(10,10,this))))), 2);
+            //Paracrobunus = machin.parse("heros(10, 10) femme guerriere bouclier tapis-volant rank=2");
+            Paracrobunus = Parser.Parse("HEROS(1,3) shield femme warrior");
+            //            Paracrobunus = new Rank(new MagicCarpet(new Shield(new Warrior(new Woman(new Paracrobunus(10,10,this))))), 2);
+            Paracrobunus.Model = this;
             Creatures = new List<IMobile>();
             Creatures.Add(new Dragon(12, 12, this));
             Creatures.Add(new Woman(new Troll(14, 14, this)));

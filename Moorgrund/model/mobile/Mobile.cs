@@ -10,10 +10,10 @@ namespace Moorgrund.model.mobile
 {
     abstract class Mobile : Square, IMobile
     {
-        protected IModel Model { get; set; }
+        public IModel Model { get; set; }
         private int _x, _y;
-        public int X { get { return _x; } set { Model.Changed = true; _x = value; } }
-        public int Y { get { return _y; } set { Model.Changed = true; _y = value; } }
+        public int X { get { return _x; } set { if(Model != null) Model.Changed = true; _x = value; } }
+        public int Y { get { return _y; } set { if (Model != null) Model.Changed = true; _y = value; } }
         public Direction Direction { get; set; }
 
         public Mobile(Sprite sprite, int x, int y, IModel model) : base(sprite, false)

@@ -13,6 +13,7 @@ namespace Moorgrund.model.mobile.custom {
         public int Y { get => Mobile.Y; set => Mobile.Y = value; }
         public ISprite Sprite { get => Mobile.Sprite; set => Mobile.Sprite = value; }
         public bool Traversable { get => Mobile.Traversable; set => Mobile.Traversable = value; }
+        public IModel Model { get => Mobile.Model; set => Mobile.Model = value; }
 
         public Custom(IMobile mobile) {
             Mobile = mobile;

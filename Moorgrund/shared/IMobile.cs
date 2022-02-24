@@ -10,6 +10,7 @@ namespace Moorgrund.shared
     {
         int X { get; set; }
         int Y { get; set; }
+        IModel Model { get; set; }
 
         void MoveDown();
         void MoveLeft();
