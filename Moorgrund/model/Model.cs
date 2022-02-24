@@ -12,10 +12,11 @@ namespace Moorgrund.model {
         public IWorld World { get; }
         public IMobile Paracrobunus { get; }
         public List<IMobile> Creatures { get; }
-
+        
         public Model() {
             World = new World(Width, Height);
-            Paracrobunus = new Flying(new MagicCarpet(new Shield(new Warrior(new Woman(new Paracrobunus(10,10,this))))));
+            //Paracrobunus = machin.parse("heros femme guerriere bouclier tapis-volant rank=2");
+            Paracrobunus = new Rank(new MagicCarpet(new Shield(new Warrior(new Woman(new Paracrobunus(10,10,this))))), 2);
             Creatures = new List<IMobile>();
             Creatures.Add(new Dragon(12, 12, this));
             Creatures.Add(new Woman(new Troll(14, 14, this)));

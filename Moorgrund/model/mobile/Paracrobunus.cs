@@ -17,9 +17,6 @@ namespace Moorgrund.model.mobile
 
         }
 
-        public override void Live() {
-        }
-
         public override bool isSquareFree(int x, int y) {
             return Model.World.GetSquare(x, y).Traversable;
         }

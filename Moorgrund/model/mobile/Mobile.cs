@@ -61,7 +61,7 @@ namespace Moorgrund.model.mobile
             return Sprite.TextImage[y, x];
         }
 
-        public void Live() {
+        public virtual void Live() {
 
         }
     }

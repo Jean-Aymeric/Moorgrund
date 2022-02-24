@@ -30,7 +30,7 @@ namespace Moorgrund.model.mobile.creature
             BehaviorMove.Move();
         }
 
-        public override void Live()
+        public void Live()
         {
             Move();
         }

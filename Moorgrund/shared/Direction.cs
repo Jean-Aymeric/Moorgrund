@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Moorgrund.shared {
-   enum Direction {
+    enum Direction {
         Up, Right, Down, Left,
     };
+}
