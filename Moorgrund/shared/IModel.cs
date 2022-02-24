@@ -4,7 +4,7 @@ using System.Collections.Generic;
 namespace Moorgrund.shared {
     interface IModel {
         IMobile Paracrobunus { get; }
-        List<ICreature> Creatures { get; }
+        List<IMobile> Creatures { get; }
         String Test();
         IWorld World { get; }
         void AddObserver(IObserver observer);

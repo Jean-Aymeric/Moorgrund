@@ -1,5 +1,6 @@
 ﻿using Moorgrund.model.mobile;
 using Moorgrund.model.mobile.creature;
+using Moorgrund.model.mobile.custom;
 using Moorgrund.shared;
 using System;
 using System.Collections.Generic;
@@ -10,14 +11,14 @@ namespace Moorgrund.model {
         private static int Height = 29;       
         public IWorld World { get; }
         public IMobile Paracrobunus { get; }
-        public List<ICreature> Creatures { get; }
+        public List<IMobile> Creatures { get; }
 
         public Model() {
             World = new World(Width, Height);
-            Paracrobunus = new Paracrobunus(10,10,this);
-            Creatures = new List<ICreature>();
+            Paracrobunus = new Flying(new MagicCarpet(new Shield(new Warrior(new Woman(new Paracrobunus(10,10,this))))));
+            Creatures = new List<IMobile>();
             Creatures.Add(new Dragon(12, 12, this));
-            Creatures.Add(new Troll(14, 14, this));
+            Creatures.Add(new Woman(new Troll(14, 14, this)));
         }
 
         public string Test() {
@@ -30,7 +31,7 @@ namespace Moorgrund.model {
             {
                 return Paracrobunus;
             }
-            foreach (ICreature creature in Creatures)
+            foreach (IMobile creature in Creatures)
             {
                 if (creature.X == x && creature.Y == y)
                 {

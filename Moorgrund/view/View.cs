@@ -56,7 +56,7 @@ namespace Moorgrund.view {
                         IMobile mobile = Model.GetMobileByXY(PositionXToWorldX(x), PositionYToWorldY(y));
                         if(mobile != null)
                         {
-                            OneLineOfWorld += mobile.Sprite.TextImage[ligne, i];
+                            OneLineOfWorld += mobile.getSpriteXY(i, ligne);
                         }else
                         {
                             OneLineOfWorld += Model.World.GetSquare(PositionXToWorldX(x), PositionYToWorldY(y)).Sprite.TextImage[ligne, i];

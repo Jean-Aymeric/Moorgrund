@@ -15,5 +15,8 @@ namespace Moorgrund.shared
         void MoveLeft();
         void MoveRight();
         void MoveUp();
+        char getSpriteXY(int x, int y);
+        void Live();
+        bool isSquareFree(int x, int y);
     }
 }

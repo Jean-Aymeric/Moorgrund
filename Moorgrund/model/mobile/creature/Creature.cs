@@ -30,9 +30,13 @@ namespace Moorgrund.model.mobile.creature
             BehaviorMove.Move();
         }
 
-        public void Live()
+        public override void Live()
         {
             Move();
+        }
+
+        public override bool isSquareFree(int x, int y) {
+            return Model.World.GetSquare(x, y).Traversable;
         }
     }
 }

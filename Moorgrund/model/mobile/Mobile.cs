@@ -14,6 +14,7 @@ namespace Moorgrund.model.mobile
         private int _x, _y;
         public int X { get { return _x; } set { Model.Changed = true; _x = value; } }
         public int Y { get { return _y; } set { Model.Changed = true; _y = value; } }
+        public Direction Direction { get; set; }
 
         public Mobile(Sprite sprite, int x, int y, IModel model) : base(sprite, false)
         {
@@ -22,10 +23,7 @@ namespace Moorgrund.model.mobile
             Y = y;
         }
 
-        protected bool isSquareFree(int x, int y)
-        {
-            return Model.World.GetSquare(x, y).Traversable;
-        }
+        abstract public bool isSquareFree(int x, int y);
 
         public void MoveDown()
         {
@@ -57,6 +55,14 @@ namespace Moorgrund.model.mobile
             {
                 X++;
             }
+        }
+
+        public char getSpriteXY(int x, int y) {
+            return Sprite.TextImage[y, x];
+        }
+
+        public void Live() {
+
         }
     }
 }

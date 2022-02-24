@@ -50,7 +50,7 @@ namespace Moorgrund.controller {
             for(; ; )
             {
                 view.Display();
-                foreach (ICreature creature in Model.Creatures)
+                foreach (IMobile creature in Model.Creatures)
                 {
                     creature.Live();
                 }
